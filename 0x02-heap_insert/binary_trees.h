@@ -1,6 +1,6 @@
 
-#ifndef _BINARY_TREES_H_
-#define _BINARY_TREES_H_
+#ifndef _binary_trees_h
+#define _binary_trees_h
 
 #include <stddef.h>
 #include <stdio.h>
