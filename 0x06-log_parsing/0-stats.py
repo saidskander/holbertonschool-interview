@@ -15,16 +15,16 @@ def printstats(file_size, status_codes):
     """ print sorted Pr  """
     print("File size: " + str(file_size))
     for code in sorted(status_codes.keys()):
-        if status_codes[code] > 0:
+        if status_codes[code] >= 1:
             print(code + ": " + str(status_codes[code]))
 
 try:
     for line in stdin:
         lines += 1
         split_line = line.split()
-        if len(split_line) > 1:
+        if len(split_line) >= 2:
             file_size += int(split_line[-1])
-        if len(split_line) > 2 and split_line[-2].isnumeric():
+        if len(split_line) >= 3 and split_line[-2].isnumeric():
             status_code = split_line[-2]
         else:
             status_code = 0
