@@ -1,23 +1,25 @@
 #!/usr/bin/python3
-"""UTF-8"""
+""" valid UTF-8 encoding """
 
 def validUTF8(data):
-    """ valid UTF-8 encoding """
-    byte_numbers = 0
-    encoding_bytes = 1 << 7
-    encoding_number = 1 << 6
-    for utf in data:
-        utf_data = 1 << 7
-        if byte_numbers == 0:
-            while utf_data & utf:
-                byte_numbers += 1
-                utf_data = utf_data >> 1
-            if byte_numbers == 0:
+    """ Encode UTF-8 """
+
+    n_bytes = 0
+
+    for num in data:
+        encoding_num = format(num, '#010b')[-8:]
+        if n_bytes == 0:
+            for bit in encoding_num:
+                if bit == '0':
+                    break
+                n_bytes += 1
+            if n_bytes == 0:
                 continue
-            if byte_numbers == 1 or byte_numbers > 4:
+            if n_bytes == 1 or n_bytes > 4:
                 return False
         else:
-            if not (utf & encoding_bytes and not (utf & encoding_number)):
+            if not (encoding_num[0] == '1' and encoding_num[1] == '0'):
                 return False
-        byte_numbers -= 1
-    return byte_numbers == 0
+        n_bytes -= 1
+
+    return n_bytes == 0
