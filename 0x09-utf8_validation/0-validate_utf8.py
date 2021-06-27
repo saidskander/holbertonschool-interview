@@ -4,23 +4,20 @@
 
 def validUTF8(data):
     """ Encode UTF-8 """
-
-    n_bytes = 0
-
+    bytes_number = 0
     for num in data:
         encoding_num = format(num, '#010b')[-8:]
-        if n_bytes == 0:
-            for bit in encoding_num:
-                if bit == '0':
+        if bytes_number == 0:
+            for n in encoding_num:
+                if n == '0':
                     break
-                n_bytes += 1
-            if n_bytes == 0:
+                bytes_number += 1
+            if bytes_number == 0:
                 continue
-            if n_bytes == 1 or n_bytes > 4:
+            if bytes_number == 1 or bytes_number > 4:
                 return False
         else:
             if not (encoding_num[0] == '1' and encoding_num[1] == '0'):
                 return False
-        n_bytes -= 1
-
-    return n_bytes == 0
+        bytes_number = bytes_number - 1
+    return bytes_number == 0
