@@ -29,3 +29,42 @@ swap_ints(&line[pos], &line[x]);
 pos++;
 }
 }
+
+
+/**
+ * slide_line - int slide_line
+ * @line: int *line
+ * @size: size_t size
+ * @direction: int direction
+ * Return: 1 for success, else 0.
+ */
+int slide_line(int *line, size_t size, int direction)
+{
+size_t x = 0;
+if (direction == SLIDE_LEFT) {
+shift_left(line, size);
+for (x = 0; x < size; x++)
+{
+if (line[x] == line[x + 1])
+{
+line[x] = line[x] + line[x + 1];
+line[x + 1] = 0;
+}
+}
+shift_left(line, size);
+return (1);
+} else if (direction == SLIDE_RIGHT) {
+shift_right(line, size);
+for (x = size - 1; (int) x >= 0; x--)
+{
+if (line[x] == line[x - 1])
+{
+line[x] = line[x] + line[x - 1];
+line[x - 1] = 0;
+}
+}
+shift_right(line, size);
+return (1);
+}
+return (0);
+}
