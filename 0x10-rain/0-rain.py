@@ -13,3 +13,10 @@ def rain(walls):
             else:
                 x += lmax - walls[y]
             y += 1
+        else:
+            if walls[j] > rmax:
+                rmax = walls[j]
+            else:
+                x += rmax - walls[j]
+            j -= 1
+    return x
