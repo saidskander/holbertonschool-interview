@@ -43,7 +43,7 @@ len2 = tmp;
 for (len2--; len2 >= 0; len2--)
 {
 sdigit = num2[len2] - '0';
-res += ptr[len2 + len1 + 1] + (fdigit * sdigit);
+res += ptr[len2 + len1 + 1] + (fdigit *sdigit);
 ptr[len1 + len2 + 1] = res % 10;
 res /= 10;
 }
