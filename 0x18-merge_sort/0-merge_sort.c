@@ -58,9 +58,10 @@ void merge(int *array, int start, int mid, int end)
 int left_iter, right_iter;
 int left_size = mid - start + 1;
 int right_size = end - mid;
-/* https://gcc.gnu.org/onlinedocs/
-   gcc/Diagnostic-Pragmas.html#Diagnostic-Pragmas
- */
+/*
+ * https://gcc.gnu.org/onlinedocs/
+ * gcc/Diagnostic-Pragmas.html#Diagnostic-Pragmas
+*/
 #pragma GCC diagnostic ignored "-Wvla"
 int left[left_size];
 int right[right_size];
