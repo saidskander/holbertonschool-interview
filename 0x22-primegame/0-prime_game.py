@@ -4,6 +4,8 @@ methods:
 https://www.tutorialspoint.com/
 different-methods-to-find-prime-number-in-python-program
 """
+
+
 def isWinner(x, nums):
     """Prime Game"""
     if not nums or x < 1:
@@ -17,11 +19,11 @@ def isWinner(x, nums):
             filter[range_numbers] = False
 
     filter[0] = filter[1] = False
-    l = 0
+    h = 0
     for i in range(len(filter)):
         if filter[i]:
-            l += 1
-        filter[i] = l
+            h += 1
+        filter[i] = h
 
     place = 0
     for n in nums:
