@@ -12,7 +12,7 @@ def island_perimeter(grid):
     """ Width: number of columns """
     width = len(grid[0])
     for c in range(length):
-    """ loop through lines """
+    """ Loop through lines """
         for i in range(width):
             """ If there is 1 and no 1 above it """
             if grid[c][i] == 1 and ((c > 0 and grid[c - 1][i] != 1) or c == 0):
